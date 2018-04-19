@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Parallax</title>
+    <style>
+        #photo {
+            background: url(http://www.verticalworld.net/school/programs/uploads/pics/program_108_1.jpg);
+            height: 390px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: -150px;
+            width: 100%;
+            overflow: hidden;
+        }
+        .content {
+            background: blue;
+            height: 400px;
+        }
+        #parallax-wrapper {
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content" id="back-content">
+        back-section
+    </div>
+    <div id="parallax-wrapper">
+        <div id="photo">
+            middle-section
+        </div>
+    </div>
+    <div class="content" id="fore-content">
+        fore-section
+    </div>
+
+    <script>
+        window.addEventListener('scroll', parallaxScroll);
+
+        function parallaxScroll() {
+            var windowScrollPos = this.scrollY;
+            var $photo = document.getElementById('photo');
+            $photo.style.transform = 'translateY(' + windowScrollPos / 6 + 'px)';
+        }
+    </script>
+</body>
+
+</html>
